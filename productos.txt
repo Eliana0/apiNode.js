@@ -1,0 +1,38 @@
+[
+  {
+    "price": "1200",
+    "title": "Milanesa ",
+    "thumbnail": "https://th.bing.com/th/id/R.fe2486714c258e0fc9263be2a0677c07?rik=GDS%2bHK9LdooIHw&pid=ImgRaw&r=0",
+    "id": 1
+  },
+  {
+    "price": "1900",
+    "title": "Pizza",
+    "thumbnail": "https://th.bing.com/th/id/OIP.XXLN3abrSIN9wcatgp1-xwHaE6?pid=ImgDet&rs=1",
+    "id": 2
+  },
+  {
+    "title": "Fideos",
+    "price": "1800",
+    "thumbnail": "https://enjoyeatingbyme.files.wordpress.com/2021/07/novotel-sukhumvit-20-037.jpg",
+    "id": 3
+  },
+  {
+    "title": "Hamburguesa",
+    "price": "1400",
+    "thumbnail": "https://d1uz88p17r663j.cloudfront.net/original/bdac88d2b4d50e34c11b0e4c156c492b_Hamburguesa_con_queso.jpg",
+    "id": 4
+  },
+  {
+    "price": "3400",
+    "title": "Tacos",
+    "thumbnail": "https://th.bing.com/th/id/OIP.ggBEGy3JgV-GFaxGQUfaVAHaE7?pid=ImgDet&rs=1",
+    "id": 5
+  },
+  {
+    "price": "1300",
+    "title": "Licuado",
+    "thumbnail": "https://th.bing.com/th/id/R.cd6d2211082d9da79bfe17cbe34f5ab1?rik=Ujx0QE2vnpjhrQ&riu=http%3a%2f%2fblog.kiwilimon.com%2fwp-content%2fuploads%2f2015%2f02%2flicuados-para-desayunar.jpg&ehk=nH1IO8goA51nUBdlBFUD9yFDCYrcK%2fdgt4wMzh2GHwc%3d&risl=&pid=ImgRaw&r=0",
+    "id": 6
+  }
+]

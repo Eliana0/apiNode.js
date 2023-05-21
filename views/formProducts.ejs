@@ -1,0 +1,19 @@
+<%- include('./partials/header.ejs') %>
+
+<h1>Formulario de carga de productos</h1>
+
+<form action="/productos" method="post">
+
+    <label for="">Nombre del producto</label>
+    <input type="text" name="title" id="title">
+    <br>
+    <label for="">Precio del producto</label>
+    <input type="number" name="price" id="price"> 
+    <br>
+    <label for="">Foto del producto</label>
+    <input type="text" name="thumbnail" id="thumbnail">
+    <br>
+    <a href="/productos"><button type="submit" class="btn btn-outline-primary">Guardar</button></a>
+    
+</form>
+
