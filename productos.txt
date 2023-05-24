@@ -1,38 +1,124 @@
 [
   {
     "price": "1200",
-    "title": "Milanesa ",
+    "title": "Milanesa",
     "thumbnail": "https://th.bing.com/th/id/R.fe2486714c258e0fc9263be2a0677c07?rik=GDS%2bHK9LdooIHw&pid=ImgRaw&r=0",
+    "descripcion": [
+      "milanesa, papas fritas, limón"
+    ],
+    "stock": "20",
     "id": 1
   },
   {
     "price": "1900",
     "title": "Pizza",
     "thumbnail": "https://th.bing.com/th/id/OIP.XXLN3abrSIN9wcatgp1-xwHaE6?pid=ImgDet&rs=1",
+    "descripcion": "masa, queso, salsa, orégano",
+    "stock": "23",
     "id": 2
   },
   {
-    "title": "Fideos",
     "price": "1800",
+    "title": "Fideos",
     "thumbnail": "https://enjoyeatingbyme.files.wordpress.com/2021/07/novotel-sukhumvit-20-037.jpg",
+    "descripcion": "fideos, salsa, tomate",
+    "stock": "5",
     "id": 3
   },
   {
-    "title": "Hamburguesa",
     "price": "1400",
+    "title": "Hamburguesa",
     "thumbnail": "https://d1uz88p17r663j.cloudfront.net/original/bdac88d2b4d50e34c11b0e4c156c492b_Hamburguesa_con_queso.jpg",
+    "descripcion": "pan, carne, queso, cebolla, tomate, lechuga, huevo",
+    "stock": "41",
     "id": 4
   },
   {
     "price": "3400",
     "title": "Tacos",
     "thumbnail": "https://th.bing.com/th/id/OIP.ggBEGy3JgV-GFaxGQUfaVAHaE7?pid=ImgDet&rs=1",
+    "descripcion": "tapa, mayonesa, pollo, cebolla",
+    "stock": "15",
     "id": 5
   },
   {
     "price": "1300",
     "title": "Licuado",
-    "thumbnail": "https://th.bing.com/th/id/R.cd6d2211082d9da79bfe17cbe34f5ab1?rik=Ujx0QE2vnpjhrQ&riu=http%3a%2f%2fblog.kiwilimon.com%2fwp-content%2fuploads%2f2015%2f02%2flicuados-para-desayunar.jpg&ehk=nH1IO8goA51nUBdlBFUD9yFDCYrcK%2fdgt4wMzh2GHwc%3d&risl=&pid=ImgRaw&r=0",
+    "thumbnail": "https://i.pinimg.com/originals/5d/0d/1d/5d0d1dcf08aa758c15a2514271c1d93b.jpg",
+    "descripcion": "frutilla, azúcar, leche de almendra",
+    "stock": "38",
     "id": 6
+  },
+  {
+    "price": "1500",
+    "title": "Sanguche",
+    "thumbnail": "https://th.bing.com/th/id/OIP.6WbYFM9l2lS49_B1j3enAAHaE8?pid=ImgDet&rs=1",
+    "descripcion": "pan, queso, jamón, tomate, lechuga",
+    "stock": "16",
+    "id": 7
+  },
+  {
+    "title": "Brownies",
+    "price": "2000",
+    "thumbnail": "https://th.bing.com/th/id/OIP.LkM-fb9-6nUUR1CXh5jtagHaE7?pid=ImgDet&w=1400&h=933&rs=1",
+    "descripcion": "chocolate, harina, azúcar, huevo",
+    "stock": "22",
+    "id": 8
+  },
+  {
+    "price": "900",
+    "title": "Frutillas",
+    "thumbnail": "https://th.bing.com/th/id/OIP.rWWvB41mX5Kz5w_Sq8rHbAHaE8?pid=ImgDet&rs=1",
+    "descripcion": "frurillas, crema, chocolate",
+    "stock": "31",
+    "id": 9
+  },
+  {
+    "price": "1200",
+    "title": "Cheescake",
+    "thumbnail": "https://images.eatsmarter.de/sites/default/files/styles/max_size/public/quarkkuchen-mit-blaubeersosse-65915.jpg",
+    "descripcion": "frutos rojos, galleta, azúcar, queso crema",
+    "stock": "26",
+    "id": 10
+  },
+  {
+    "price": "2300",
+    "title": "Ramen",
+    "thumbnail": "https://th.bing.com/th/id/OIP.ukOOT4BaeIsN1yHA7O2SMwHaE8?pid=ImgDet&rs=1",
+    "descripcion": "caldo, cerdo, fideos, huevo",
+    "stock": "4",
+    "id": 11
+  },
+  {
+    "price": "900",
+    "title": "Flan",
+    "thumbnail": "https://comidatipica.de/wp-content/uploads/2020/11/Budin-de-Pan.jpg",
+    "descripcion": "huevo, caramelo, leche, azúcar, vainilla",
+    "stock": "11",
+    "id": 12
+  },
+  {
+    "price": "1200",
+    "title": "Helado",
+    "thumbnail": "https://i2.wp.com/noticias.perfil.com/wp-content/uploads/2018/04/Captura-de-pantalla-2018-04-06-a-las-11.jpg?fit=1820%2C1212&ssl=1",
+    "descripcion": "chocolate, leche condensada, azúcar",
+    "stock": "54",
+    "id": 13
+  },
+  {
+    "price": "2700",
+    "title": "Pollo al horno",
+    "thumbnail": "https://th.bing.com/th/id/R.8af8d87c6083bd0367ff549e2efff01c?rik=TOLtPoMXtD2K9w&pid=ImgRaw&r=0",
+    "descripcion": "pollo, papas, limón, orégano",
+    "stock": "27",
+    "id": 14
+  },
+  {
+    "price": "1500",
+    "title": "Ensalada",
+    "thumbnail": "https://www.dijamant.rs/wp-content/uploads/2017/04/gr%C4%8Dka-salata-596x384.jpg",
+    "descripcion": "lechuga, tomate, pollo, aceite, cebolla",
+    "stock": "33",
+    "id": 15
   }
 ]

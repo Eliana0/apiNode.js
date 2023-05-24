@@ -9,33 +9,43 @@
       <th scope="col">id</th>
       <th scope="col">nombre</th>
       <th scope="col">Precio</th>
+      <th scope="col">Stock</th>
+      <th scope="col">Descripción</th>
       <th scope="col">Foto</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-<form action="/api/update-productos/<%= products.id %>">
+<form action="/api/productos/<%= products.id %>" method="put">
 <input type="hidden" name="_method" value="PUT">
   <td>
-    <input type="text" value="<%= products.id %>" readonly name="id" id="id" aria-describedby="helpId" placeholder="Número de ID">  
+    <input type="text" value="<%= products.id %>" readonly name="id" id="id">  
   </td>
 
   <td>
-    <%= products.title %>
     <br>
-    <input type="text" name="title" id="title">
+    <input type="text" value="<%= products.title %>" name="title" id="title">
   </td>
 
   <td>
-    $<%= products.price %>
     <br>
-    <input type="number" name="price" id="price">
+    <input type="number" value="<%= products.price %>" name="price" id="price">
+  </td>
+
+  <td>
+    <br>
+    <input type="number" value="<%= products.stock %>" name="stock" id="stock">
+  </td>
+
+  <td>
+    <br>
+    <input type="text" value="<%= products.descripcion %>" name="descripcion" id="descripcion">
   </td>
 
   <td>
     <img style="width: 100px" src= <%= products.thumbnail %>  alt="">
     <br>
-    <input type="text" name="thumbnail" id="thumbnail">
+    <input type="text" value="<%= products.thumbnail %>" name="thumbnail" id="thumbnail">
   </td>    
 
   <td><button type="submit" class="btn btn-outline-primary">Guardar</button></td>

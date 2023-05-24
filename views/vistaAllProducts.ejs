@@ -1,27 +1,71 @@
 <%- include('./partials/header.ejs') %>
+
+<!-- FORMULARIO DE CARGA -->
+
+<% if (admin == true) {%>
+
+<h1>Formulario de carga de productos</h1>
+
+<form action="/api/productos" method="post">
+
+    <label for="">Nombre del producto</label>
+    <input type="text" name="title" id="title">
+    <br>
+    <label for="">Precio del producto</label>
+    <input type="number" name="price" id="price"> 
+    <br>
+    <label for="">Foto del producto</label>
+    <input type="text" name="thumbnail" id="thumbnail">
+    <br>
+    <label for="">Descripción del producto</label>
+    <input type="text" name="descripcion" id="descripcion">
+    <br>
+    <label for="">Stock del producto</label>
+    <input type="number" name="stock" id="stock">
+    <br>
+    <a href="/apiproductos"><button type="submit" class="btn btn-outline-primary">Guardar</button></a>
+    
+</form>
+
+<%   }; %>
+
+<!-- TABLA DE PRODUCTOS -->
+
 <table class="table">
   <thead>
     <tr>
       <th scope="col">id</th>
       <th scope="col">nombre</th>
       <th scope="col">Precio</th>
+      <th scope="col">Stock</th>
+      <th scope="col">Descripción</th>
       <th scope="col">Foto</th>
     </tr>
   </thead>
   <tbody>
     <% products.forEach(product => { %>
-      
-      <tr>
-        <th scope="row"><%= product.id %></th>
-        <td><%= product.title %></td>
-        <td>$<%= product.price %></td>
-        <td><img style="width: 100px" src=<%= product.thumbnail %>  alt=""></td>
-        <td><a href="/api/update-productos/<%= product.id %>"><button class="btn btn-outline-primary" >Editar</button></a>
-          <a href="/api/productos/<%= product.id %>" class="btn btn-primary" data-method="delete">Eliminar</a>
-          </td>
-          </tr>
+      <form action="/api/cart/<%= product.id %>/productos" method="post">
+        <tr>
+          <th scope="row"><%= product.id %></th>
+          <td><%= product.title %></td>
+          <td>$<%= product.price %></td>
+          <td><%= product.stock %></td> 
+          <td><%= product.descripcion %></td> 
+          <td><img style="width: 100px" src=<%= product.thumbnail %>  alt=""></td>
+          <% if (admin == true) {%>
+            <td><a href="/api/productos/<%= product.id %>"><button class="btn btn-outline-primary">Editar</button></a>
+              <a href="/api/productos/<%= product.id %>" class="btn btn-primary" data-method="delete">Eliminar</a>
+              
+            </td>
+            <%   };%>
+              <td>
+                <!-- <a href="/api/cart"> --><button class="btn btn-outline-primary" >Agregar</button>
+                </td>
+              </tr>
+        </form>
           
     <%   }); %>
   </tbody>
 </table>
-<a href="/"><button class="btn btn-primary">Crear producto</button></a>
+
+<script src="index.js"></script>

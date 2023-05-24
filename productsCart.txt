@@ -1,0 +1,40 @@
+[
+  {
+    "nombre": "Juanito",
+    "productos": [
+      1,
+      2
+    ],
+    "id": 1
+  },
+  {
+    "nombre": "Pepita",
+    "productos": [
+      3,
+      4,
+      10,
+      6,
+      7,
+      11
+    ],
+    "id": 2
+  },
+  {
+    "nombre": "Bart",
+    "productos": [
+      5,
+      6,
+      1
+    ],
+    "id": 3
+  },
+  {
+    "nombre": "Lisa",
+    "productos": [
+      7,
+      8,
+      12
+    ],
+    "id": 4
+  }
+]
