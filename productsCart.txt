@@ -3,7 +3,10 @@
     "nombre": "Juanito",
     "productos": [
       1,
-      2
+      2,
+      15,
+      8,
+      10
     ],
     "id": 1
   },
@@ -12,19 +15,14 @@
     "productos": [
       3,
       4,
-      10,
-      6,
-      7,
-      11
+      10
     ],
     "id": 2
   },
   {
     "nombre": "Bart",
     "productos": [
-      5,
-      6,
-      1
+      5
     ],
     "id": 3
   },
@@ -32,8 +30,8 @@
     "nombre": "Lisa",
     "productos": [
       7,
-      8,
-      12
+      9,
+      11
     ],
     "id": 4
   }

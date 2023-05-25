@@ -62,7 +62,7 @@
     "price": "2000",
     "thumbnail": "https://th.bing.com/th/id/OIP.LkM-fb9-6nUUR1CXh5jtagHaE7?pid=ImgDet&w=1400&h=933&rs=1",
     "descripcion": "chocolate, harina, azúcar, huevo",
-    "stock": "22",
+    "stock": "10",
     "id": 8
   },
   {
@@ -114,11 +114,19 @@
     "id": 14
   },
   {
-    "price": "1500",
+    "price": "1600",
     "title": "Ensalada",
-    "thumbnail": "https://www.dijamant.rs/wp-content/uploads/2017/04/gr%C4%8Dka-salata-596x384.jpg",
-    "descripcion": "lechuga, tomate, pollo, aceite, cebolla",
-    "stock": "33",
+    "thumbnail": "https://th.bing.com/th/id/OIP.nyTPvo7FMGJ3M3KYLop-egHaEx?pid=ImgDet&rs=1",
+    "descripcion": "lechuga, huevo, tomate",
+    "stock": "22",
     "id": 15
+  },
+  {
+    "price": "1600",
+    "title": "Papas fritas",
+    "thumbnail": "https://www.rockandpop.cl/wp-content/uploads/2020/08/7fc56270e7a70fa81a5935b72eacbe29.png",
+    "descripcion": "papas, aceite, sal",
+    "stock": "32",
+    "id": 16
   }
 ]

@@ -1,4 +1,4 @@
-const { Contenedor } = require('../controllers/contentProducts.js');
+const { Contenedor } = require('./contenedorProducts.js');
 const fs = require('fs').promises;
 
 const contenedor = new Contenedor('productos.txt');
@@ -24,24 +24,33 @@ class CartContent {
       }
     }
 
+    async readProductsCart(id) {
+        try {
+          const cart = await this.getCartById(parseInt(id));
+          const productos = cart.productos;
+          const promises = productos.map(async (element) => {
+            return await contenedor.getById(element);
+          });
+          return await Promise.all(promises);
+        } catch (err) {
+          throw new Error('Error al leer los productos del carrito');
+        }
+      }
+
       async saveProductCartId(cartId, productId) {
         try {
           const products = await this.getAll();
           const cart = await this.getCartById(parseInt(cartId));
           const product = await contenedor.getById(parseInt(productId));
           const productID = product.id;
-      
           const newProductos = [...cart.productos, productID];
-      
           const productIndex = products.findIndex(product => product.id === cart.id);
           products[productIndex] = {
             nombre: cart.nombre,
             productos: newProductos,
             id: cart.id
           };
-      
           await fs.writeFile(this.archivo, JSON.stringify(products, null, 2));
-      
           const cartProductos = await Promise.all(newProductos.map(async (element) => {
             const findElementById = await contenedor.getById(element);
             return findElementById;
@@ -118,18 +127,14 @@ class CartContent {
         try {
           const products = await this.getAll();
           const cart = await this.getCartById(parseInt(cartId));
-      
           const newProductos = cart.productos.filter(product => product !== parseInt(productId));
-      
           const productIndex = products.findIndex(product => product.id === cart.id);
           products[productIndex] = {
             nombre: cart.nombre,
             productos: newProductos,
             id: cart.id
           };
-      
           await fs.writeFile(this.archivo, JSON.stringify(products, null, 2));
-      
           const retorna = `Nombre: ${cart.nombre}, productos: ${newProductos.join(', ')}`;
           return retorna;
         } catch (err) {

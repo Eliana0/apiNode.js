@@ -44,28 +44,31 @@
   </thead>
   <tbody>
     <% products.forEach(product => { %>
-      <form action="/api/cart/<%= product.id %>/productos" method="post">
+      <% if (admin == true) {%>
+        <form action="/api/productos/<%= product.id %>" method="delete" id="formPutProducts"></form>
+        <%   } else{;%>
+          <form action="/api/cart/1/productos/<%= product.id %>" method="post" id="formPutProducts">
+      <%   };%>
+
         <tr>
-          <th scope="row"><%= product.id %></th>
-          <td><%= product.title %></td>
-          <td>$<%= product.price %></td>
-          <td><%= product.stock %></td> 
+          <th id="formid" scope="row"><%= product.id %></th>
+          <td id="formtitle"><%= product.title %></td>
+          <td id="formprice">$<%= product.price %></td>
+          <td id="formstock"><%= product.stock %></td> 
           <td><%= product.descripcion %></td> 
-          <td><img style="width: 100px" src=<%= product.thumbnail %>  alt=""></td>
+          <td id="formimg"><img style="width: 100px" src=<%= product.thumbnail %>  alt=""></td>
           <% if (admin == true) {%>
             <td><a href="/api/productos/<%= product.id %>"><button class="btn btn-outline-primary">Editar</button></a>
-              <a href="/api/productos/<%= product.id %>" class="btn btn-primary" data-method="delete">Eliminar</a>
-              
+              <a href="/api/productos/eliminar/<%= product.id %>" type="submit" class="btn btn-primary">Eliminar</a>
             </td>
-            <%   };%>
+            <%   } else{%>
               <td>
-                <!-- <a href="/api/cart"> --><button class="btn btn-outline-primary" >Agregar</button>
-                </td>
+                <button class="btn btn-outline-primary" type="submit">Agregar</button>
+              </td>
+                <%   };%>
               </tr>
         </form>
           
     <%   }); %>
   </tbody>
 </table>
-
-<script src="index.js"></script>

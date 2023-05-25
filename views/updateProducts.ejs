@@ -16,8 +16,7 @@
   </thead>
   <tbody>
     <tr>
-<form action="/api/productos/<%= products.id %>" method="put">
-<input type="hidden" name="_method" value="PUT">
+<form action="/api/productos/update/<%= products.id %>" method="post">
   <td>
     <input type="text" value="<%= products.id %>" readonly name="id" id="id">  
   </td>
