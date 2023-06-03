@@ -1,0 +1,14 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+<h1>Login</h1>
+
+<a href="/api/user/singup"><button style="margin: 2% 0%;" class="btn btn-outline-primary">Singup</button></a>
+
+<form action="/api/user/login" method="post">
+    <input class="form-control" style="width:50%" type="text" placeholder="Mail" name= "mail" id="mail" aria-label="default input example">
+    <br>
+    <input class="form-control" style="width:50%" type="password" placeholder="Contraseña" name= "password" id="password" aria-label="default input example">
+    <br>
+    <button type="submit" class="btn btn-primary" >Ingresar</button>
+</form>

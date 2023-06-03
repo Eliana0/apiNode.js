@@ -1,68 +1,51 @@
-const { Contenedor } = require('./contenedorProducts.js');
-const fs = require('fs').promises;
+import { Contenedor } from './contenedorProducts.js';
+import { ProductModel } from '../models/productModels.js';
+import { CartModel } from '../models/cartModels.js'
+import files from 'fs';
 
+const fs= files.promises
 const contenedor = new Contenedor('productos.txt');
+const contenedorCarrito = new CartModel()
 
-class CartContent {
-    constructor(archivo) {
-      this.archivo = archivo;
-      this.nextId = 1;
-    }
-  
+export class CartContent {
+
     async save(object) {
       try {
-        const objects = await this.getAll();
-        const maxNumber = Math.max(...objects.map(obj => obj.id), 0);
-        object.id = maxNumber + 1;
-        objects.push(object);
-        await fs.writeFile(this.archivo, JSON.stringify(objects, null, 2));
-        const productById = await this.getCartById(object.id);
-        this.nextId = maxNumber + 2;
-        return productById;
+        const product = await CartModel.create(object);
+        return product;
       } catch (error) {
-        throw new Error('Error al guardar el carrito en el archivo');
+        throw new Error('Error al guardar el carrito');
       }
     }
 
     async readProductsCart(id) {
         try {
-          const cart = await this.getCartById(parseInt(id));
+          const cart = await this.getCartById(id);
           const productos = cart.productos;
           const promises = productos.map(async (element) => {
             return await contenedor.getById(element);
           });
-          return await Promise.all(promises);
+            return await Promise.all(promises);
         } catch (err) {
           throw new Error('Error al leer los productos del carrito');
         }
       }
-
-      async saveProductCartId(cartId, productId) {
+   
+      async saveProductCartId(userId, productId) {
         try {
-          const products = await this.getAll();
-          const cart = await this.getCartById(parseInt(cartId));
-          const product = await contenedor.getById(parseInt(productId));
+          const cart = await this.getCartById(userId);
+          const product = await contenedor.getById(productId);
           const productID = product.id;
           const newProductos = [...cart.productos, productID];
-          const productIndex = products.findIndex(product => product.id === cart.id);
-          products[productIndex] = {
-            nombre: cart.nombre,
-            productos: newProductos,
-            id: cart.id
-          };
-          await fs.writeFile(this.archivo, JSON.stringify(products, null, 2));
-          const cartProductos = await Promise.all(newProductos.map(async (element) => {
-            const findElementById = await contenedor.getById(element);
-            return findElementById;
-          }));
+          const updatedCart = await CartModel.findByIdAndUpdate(userId, {
+            productos: newProductos
+          }, { new: true });
       
-          const retorna = `Nombre: ${cart.nombre}, productos: ${cartProductos.map(obj => JSON.stringify(obj, null, 2)).join(',\n')}`;
-          return retorna;
-        } catch (err) {
-          throw new Error('Error al guardar el objeto en el carrito');
+          return updatedCart;
+        } catch (error) {
+          throw new Error('Error al guardar el producto en el carrito');
         }
       }
-   
 
       async getElementById(id) {
         try {
@@ -83,20 +66,20 @@ class CartContent {
           throw new Error('Error al obtener el objeto por su id');
         }
       }
-      
+
     async getCartById(id) {
       try {
-        const objects = await this.getAll();
-        return objects.find(object => object.id === id) || null;
+        const object = await CartModel.findById(id);
+        return object || null;
       } catch (error) {
         throw new Error('Error al obtener el objeto por su id');
       }
     }
-  
+
     async getAll() {
       try {
-        const data = await fs.readFile(this.archivo, 'utf-8');
-        return JSON.parse(data) || [];
+        const data = await CartModel.find()
+        return data;
       } catch (error) {
         return [];
       }
@@ -123,22 +106,28 @@ class CartContent {
       }
     }
 
-    async deleteProductCartId(cartId, productId) {
+/*     async deleteProductCartId(cartId, productId) {
         try {
-          const products = await this.getAll();
-          const cart = await this.getCartById(parseInt(cartId));
-          const newProductos = cart.productos.filter(product => product !== parseInt(productId));
-          const productIndex = products.findIndex(product => product.id === cart.id);
-          products[productIndex] = {
-            nombre: cart.nombre,
-            productos: newProductos,
-            id: cart.id
-          };
-          await fs.writeFile(this.archivo, JSON.stringify(products, null, 2));
-          const retorna = `Nombre: ${cart.nombre}, productos: ${newProductos.join(', ')}`;
-          return retorna;
+          //await CartModel.findByIdAndDelete()
+          const cart = await this.getCartById(cartId);
+          const cartProducts = cart.productos;
+          console.log(cartProducts)
+          await CartModel.cartProducts.findByIdAndDelete(productId)
         } catch (err) {
-          throw new Error('Error al guardar el objeto en el carrito');
+          throw new Error('Error al borrar el objeto del carrito');
+        }
+      } */
+      async deleteProductCartId(cartId, productId) {
+        try {
+          const cart = await this.getCartById(cartId);
+          const cartProducts = cart.productos;
+          const updatedProducts = cartProducts.filter((product) => product !== productId);
+          const updatedCart = await CartModel.findByIdAndUpdate(cartId, {
+            productos: updatedProducts
+          }, { new: true });
+          return updatedCart;
+        } catch (error) {
+          throw new Error('Error al borrar el objeto del carrito');
         }
       }
   
@@ -162,5 +151,3 @@ class CartContent {
     }
   }
   
-
-  module.exports = {CartContent}

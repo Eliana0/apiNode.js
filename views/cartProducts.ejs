@@ -3,6 +3,7 @@
 
     <h1>Cart</h1>
     <h3><%= user.nombre %></h3>
+    <a href="/api/productos"><button class="btn btn-outline-primary">Ir a Tienda</button></a>
     <table class="table">
         <thead>
           <tr>
@@ -21,7 +22,7 @@
               <td>$<%= product.price %></td>
               <td><%= product.stock %></td> 
               <td><img style="width: 100px" src=<%= product.thumbnail %>  alt=""></td>
-              <td><a href="/api/cart/-/productos-delete/<%= product.id %>" class="btn btn-primary">Eliminar</a></td>
+              <td><a href="/api/cart/<%= user._id %>/productos-delete/<%= product.id %>" class="btn btn-primary">Eliminar</a></td>
             </tr>
             <%   }); %>
         </tbody>
